@@ -16,9 +16,9 @@ export default function Login() {
     return (
         <div>
             <h1>Spootify</h1>
-            <Link to="/home">
-                <Button variant="contained" color="primary" onClick={() => callLogin()}>CONNECT WITH SPOOTIFY</Button>
-            </Link>         
+            {/* <Link to="/home"> */}
+                <a href='http://localhost:8888/login'><Button variant="contained" color="primary">CONNECT WITH SPOOTIFY</Button></a>
+            {/* </Link>          */}
         </div>
     );
 }
