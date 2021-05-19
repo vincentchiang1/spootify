@@ -1,24 +1,20 @@
-import { Button } from '@material-ui/core'
-import React from 'react'
-import { Link } from 'react-router-dom'
-const axios = require('axios');
+import { Button } from '@material-ui/core';
+import React from 'react';
+import { authEndpoint, clientId, redirectUri, scopes } from './config';
 
 export default function Login() {
-
-    const callLogin = () => {
-        console.log('hihihhi')
-        axios.get('http://localhost:8888/login').then(resp => {
-
-            console.log(resp.data);
-        });
-    }
-
-    return (
-        <div>
-            <h1>Spootify</h1>
-            {/* <Link to="/home"> */}
-                <a href='http://localhost:8888/login'><Button variant="contained" color="primary">CONNECT WITH SPOOTIFY</Button></a>
-            {/* </Link>          */}
-        </div>
-    );
+  return (
+    <div>
+      <h1>Spootify</h1>
+      <a
+        href={`${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
+          '%20'
+        )}&response_type=token&show_dialog=true`}
+      >
+        <Button variant="contained" color="primary">
+          CONNECT WITH SPOOTIFY
+        </Button>
+      </a>
+    </div>
+  );
 }
