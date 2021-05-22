@@ -1,20 +1,39 @@
 .track-container {
   display: flex;
   flex-direction: row;
-  margin: 1.8em;
+  margin: 0.6em;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.track-container:hover {
+  background-color: #ededed;
+  /* opacity: 50%; */
 }
 
 .name-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 2em;
+  margin: 1em;
+  font-size: 18px;
 }
 
 .track-index-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em;
-  width: 2em;
+  margin: 1em;
+  font-size: 18px;
+  font-weight: 600;
+  color: #aba5c3;
+}
+
+.image-container {
+  border-radius: 10px;
+}
+
+.songName {
+  font-weight: 600;
 }

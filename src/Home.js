@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from '@material-ui/core';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import hash from './hash';
@@ -11,12 +10,13 @@ export default function Home() {
   const [topTracks, setTopTracks] = useState([]);
 
   const parsetopTracks = (tracks) => {
-    // console.log(tracks);
+    console.log(tracks);
     let tracksArray = [];
     for (let item of tracks.items) {
       let trackObj = {};
       trackObj['songName'] = item.name;
       trackObj['artistName'] = item.artists[0].name;
+      trackObj['songLink'] = item.external_urls.spotify;
       let imageObj = {};
       imageObj['largeImg'] = item.album.images[0];
       imageObj['mediumImg'] = item.album.images[1];
@@ -67,16 +67,25 @@ export default function Home() {
       <div className="top-track-list">
         {topTracks.map((track, index) => {
           return (
-            <div key={index} className="track-container">
+            <a
+              target="_blank"
+              href={track.songLink}
+              key={index}
+              className="track-container"
+            >
               <div className="track-index-container">
-                <h1>{index + 1}</h1>
+                <span>{index + 1}</span>
               </div>
-              <img src={track.images.mediumImg.url} alt="track image" />
+              <img
+                className="image-container"
+                src={track.images.smallImg.url}
+                alt="track icon"
+              />
               <div className="name-container">
-                <h1>{track.songName}</h1>
-                <h1>{track.artistName}</h1>
+                <span className="songName">{track.songName}</span>
+                <span className="artistName">{track.artistName}</span>
               </div>
-            </div>
+            </a>
           );
         })}
       </div>
