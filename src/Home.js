@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import hash from './hash';
 import './Home.css';
+import Logo from './images/spootify-logo.png';
+import TracksLogo from './images/top-icon.png';
 const axios = require('axios');
 
 export default function Home() {
@@ -53,11 +55,28 @@ export default function Home() {
 
   return (
     <div className="home-page">
-      <div className="nav-sidebar"></div>
+      <div className="nav-sidebar">
+        <a className="navbar-icons">
+          <img className="icon-images" id="logo" src={Logo} alt="spootify" />
+        </a>
+        <a className="navbar-icons" id="artists-button" href="#">
+          <img className="icon-images" src={TracksLogo} alt="tracks" />
+          <span>Top Artists</span>
+        </a>
+        <a className="navbar-icons" id="tracks-button" href="#">
+          <img className="icon-images" src={TracksLogo} alt="tracks" />
+          <span>Top Tracks</span>
+        </a>
+        <a className="navbar-icons" id="recent-button" href="#">
+          <img className="icon-images" src={TracksLogo} alt="tracks" />
+          <span>Recent</span>
+        </a>
+      </div>
 
       <div className="content-container">
-        <div className="header-container">
-          <h1>Top Tracks</h1>
+        <div className="cover-photo"></div>
+        <h1 className="header-container">Top Tracks</h1>
+        <div className="top-track-list">
           <div className="time-range-selector">
             <button
               className="time-option"
@@ -81,9 +100,6 @@ export default function Home() {
               Recent
             </button>
           </div>
-        </div>
-
-        <div className="top-track-list">
           {topTracks.map((track, index) => {
             return (
               <a
