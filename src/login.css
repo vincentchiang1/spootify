@@ -1,11 +1,12 @@
 .login-container {
   width: 100%;
   height: 100%;
-  background: url('./images/t.jpg') no-repeat center center fixed;
+  background: url('./images/login-background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  z-index: -2;
 }
 
 .login-content {
@@ -43,4 +44,16 @@
 
 a {
   text-decoration: none;
+  z-index: 2;
+}
+
+.particles-bg-canvas-self {
+  z-index: 1 !important;
+}
+
+.logo {
+  width: 150px;
+  position: absolute;
+  top: 40px;
+  left: 0px;
 }

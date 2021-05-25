@@ -9,7 +9,6 @@
 
 .track-container:hover {
   background-color: #ededed;
-  /* opacity: 50%; */
 }
 
 .name-container {
@@ -26,7 +25,7 @@
   align-items: center;
   margin: 1em;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   color: #aba5c3;
 }
 
@@ -35,5 +34,38 @@
 }
 
 .songName {
+  font-weight: 500;
+}
+
+.content-container {
+  max-width: 1025px;
+  padding: 0 0 1em;
+  margin: 0 auto;
+  background-color: lightgray;
+}
+
+.time-range-selector {
+  display: flex;
+}
+
+.time-option {
+  user-select: none;
+  cursor: pointer;
   font-weight: 600;
+  background: transparent;
+  border: none;
+  padding: 1em;
+  display: inline-block;
+  position: relative;
+  font-size: 19px;
+  color: grey;
+}
+
+button {
+  font-family: Rubik, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.time-option:focus {
+  color: black;
 }
