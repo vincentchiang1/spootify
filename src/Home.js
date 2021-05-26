@@ -3,6 +3,8 @@ import hash from './hash';
 import './Home.css';
 import Logo from './images/spootify-logo.png';
 import TracksLogo from './images/top-icon.png';
+import ArtistLogo from './images/artist-icon.png';
+import RecentLogo from './images/recent-icon.png';
 const axios = require('axios');
 
 export default function Home() {
@@ -60,16 +62,16 @@ export default function Home() {
           <img className="icon-images" id="logo" src={Logo} alt="spootify" />
         </a>
         <a className="navbar-icons" id="artists-button" href="#">
-          <img className="icon-images" src={TracksLogo} alt="tracks" />
-          <span>Top Artists</span>
+          <img className="icon-images" src={ArtistLogo} alt="artist" />
+          <span className="navbar-labels">Top Artists</span>
         </a>
         <a className="navbar-icons" id="tracks-button" href="#">
           <img className="icon-images" src={TracksLogo} alt="tracks" />
-          <span>Top Tracks</span>
+          <span className="navbar-labels">Top Tracks</span>
         </a>
         <a className="navbar-icons" id="recent-button" href="#">
-          <img className="icon-images" src={TracksLogo} alt="tracks" />
-          <span>Recent</span>
+          <img className="icon-images" src={RecentLogo} alt="recent" />
+          <span className="navbar-labels">Recent</span>
         </a>
       </div>
 
@@ -97,7 +99,7 @@ export default function Home() {
               id="short_term"
               onClick={() => getUserPlaylists('short_term')}
             >
-              Recent
+              Last Month
             </button>
           </div>
           {topTracks.map((track, index) => {
