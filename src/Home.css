@@ -45,7 +45,7 @@
   margin: 0 auto;
   background-color: white;
   box-shadow: 0 2px 40px rgb(80 80 80 / 5%);
-  /* left: 30px; */
+  left: 60px;
 }
 
 .time-range-selector {
@@ -75,7 +75,6 @@ button {
 }
 
 .cover-photo {
-  background-image: url('./images/toptracks2.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -132,6 +131,6 @@ button {
 }
 
 .navbar-labels {
-  text-decoration: none;
   font-size: 13px;
+  color: black;
 }
