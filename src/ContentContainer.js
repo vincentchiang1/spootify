@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import hash from './hash';
-const axios = require('axios');
 
 export default function ContentContainer(props) {
   return (

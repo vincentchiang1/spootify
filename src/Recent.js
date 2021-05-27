@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
-import ArtistsImage from './images/top-artists-image.jpg'
+import ArtistsImage from './images/recently-played-image.jpg';
 import hash from './hash';
 const axios = require('axios');
 
@@ -52,5 +52,12 @@ export default function Recent() {
     getRecentSongs();
   }, [token]);
 
-  return <ContentContainer header="Recently Played" image={ArtistsImage} data={recentSongs} fetchRequest={getRecentSongs}/>
+  return (
+    <ContentContainer
+      header="Recently Played"
+      image={ArtistsImage}
+      data={recentSongs}
+      fetchRequest={getRecentSongs}
+    />
+  );
 }

@@ -136,3 +136,7 @@ button {
   font-size: 13px;
   color: black;
 }
+
+.top-track-list {
+  min-height: 100vh;
+}
