@@ -8,7 +8,8 @@ export default function ContentContainer(props) {
         className="cover-photo"
       ></div>
       <h1 className="header-container">{props.header}</h1>
-      <div className="top-track-list">
+      <div className="list-container">
+        {props.type === 'recent' ? null : 
         <div className="time-range-selector">
           <button
             className="time-option"
@@ -31,27 +32,29 @@ export default function ContentContainer(props) {
           >
             Last Month
           </button>
-        </div>
-        {props.data.map((track, index) => {
+        </div>}
+        {props.data.map((item, index) => {
           return (
             <a
               target="_blank"
-              href={track.link}
+              href={item.link}
               key={index}
-              className="track-container"
+              className="item-container"
               rel="noreferrer"
             >
-              <div className="track-index-container">
+              <div className="item-index-container">
                 <span>{index + 1}</span>
               </div>
               <img
                 className="image-container"
-                src={track.images.smallImg.url}
+                src={item.images.smallImg.url}
                 alt="track icon"
               />
               <div className="name-container">
-                <span className="songName">{track.songName}</span>
-                <span className="artistName">{track.artistName}</span>
+                <span className="songName">{item.songName}</span>
+                <span style={ props.type === 'artists' ? { fontWeight: 500} : {fontWeight: 'normal'}} className="artistName">{item.artistName}</span>
+                {props.type === 'artists' ? <span className="genres">{item.genres}</span> : null}
+                {props.type === 'recent' ? <span className="timeStamp">{item.timeStamp}</span> : null}
               </div>
             </a>
           );

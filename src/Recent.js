@@ -58,6 +58,7 @@ export default function Recent() {
       image={ArtistsImage}
       data={recentSongs}
       fetchRequest={getRecentSongs}
+      type="recent"
     />
   );
 }

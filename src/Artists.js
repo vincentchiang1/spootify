@@ -15,7 +15,15 @@ export default function Artists() {
       let artistObj = {};
       artistObj['link'] = item.external_urls.spotify;
       artistObj['artistName'] = item.name;
-      artistObj['genres'] = item.genres[0] + ', ' + item.genres[1] + ', ' + item.genres[2];
+      let numGenres = 0;
+      artistObj['genres'] = '';
+      for(let genre of item.genres) {
+        if (numGenres > 2) {
+          break;
+        }
+        (numGenres === 2 || numGenres === item.genres.length - 1) ? artistObj['genres'] += genre : artistObj['genres'] += genre + ', ';
+        numGenres++;
+      }
       let imageObj = {};
       imageObj['largeImg'] = item.images[0];
       imageObj['mediumImg'] = item.images[1];
@@ -52,5 +60,5 @@ export default function Artists() {
     setToken(_token);
     getTopArtists('long_term');
   }, [token]);
-  return <ContentContainer header="Top Artists" data={topArtists} fetchRequest={getTopArtists} image={ArtistsImage} />;
+  return <ContentContainer header="Top Artists" data={topArtists} fetchRequest={getTopArtists} image={ArtistsImage} type="artists" />;
 }

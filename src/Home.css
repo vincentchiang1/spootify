@@ -1,4 +1,4 @@
-.track-container {
+.item-container {
   display: flex;
   flex-direction: row;
   margin: 0.6em;
@@ -7,7 +7,7 @@
   color: inherit;
 }
 
-.track-container:hover {
+.item-container:hover {
   background-color: #ededed;
 }
 
@@ -19,7 +19,7 @@
   font-size: 18px;
 }
 
-.track-index-container {
+.item-index-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,6 +137,12 @@ button {
   color: black;
 }
 
-.top-track-list {
+.list-container {
   min-height: 100vh;
+}
+
+.genres {
+  color: #aba5c3;
+  font-size: 0.7em;
+  text-transform: capitalize;
 }

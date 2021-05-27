@@ -52,5 +52,5 @@ export default function TopTracks() {
     getTopTracks('long_term');
   }, [token]);
 
-  return <ContentContainer header="Top Tracks" image={TracksImage} data={topTracks} fetchRequest={getTopTracks}/>;
+  return <ContentContainer header="Top Tracks" image={TracksImage} data={topTracks} fetchRequest={getTopTracks} type="tracks" />;
 }
