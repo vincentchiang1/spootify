@@ -25,7 +25,7 @@ export default function TopTracks() {
     setTopTracks(tracksArray);
   };
 
-  const getUserPlaylists = async (timeRange) => {
+  const getTopTracks = async (timeRange) => {
     // dont call api until token is set
     if (token !== '') {
       let config = {
@@ -49,8 +49,8 @@ export default function TopTracks() {
   useEffect(() => {
     let _token = hash.access_token;
     setToken(_token);
-    getUserPlaylists('long_term');
+    getTopTracks('long_term');
   }, [token]);
 
-  return <ContentContainer header="Top Tracks" image={TracksImage} topTracks={topTracks} fetchRequest={getUserPlaylists}/>;
+  return <ContentContainer header="Top Tracks" image={TracksImage} data={topTracks} fetchRequest={getTopTracks}/>;
 }

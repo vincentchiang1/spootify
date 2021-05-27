@@ -34,7 +34,7 @@ export default function ContentContainer(props) {
             Last Month
           </button>
         </div>
-        {props.topTracks.map((track, index) => {
+        {props.data.map((track, index) => {
           return (
             <a
               target="_blank"
