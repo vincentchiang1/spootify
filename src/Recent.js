@@ -4,7 +4,6 @@ import ArtistsImage from './images/top-artists-image.jpg'
 import hash from './hash';
 const axios = require('axios');
 
-
 export default function Recent() {
   const [token, setToken] = useState('');
   const [recentSongs, setrecentSongs] = useState([]);
@@ -15,7 +14,7 @@ export default function Recent() {
       let trackObj = {};
       trackObj['songName'] = item.track.name;
       trackObj['artistName'] = item.track.artists[0].name;
-      trackObj['songLink'] = item.track.external_urls.spotify;
+      trackObj['link'] = item.track.external_urls.spotify;
       let imageObj = {};
       imageObj['largeImg'] = item.track.album.images[0];
       imageObj['mediumImg'] = item.track.album.images[1];

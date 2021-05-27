@@ -14,7 +14,7 @@ export default function TopTracks() {
       let trackObj = {};
       trackObj['songName'] = item.name;
       trackObj['artistName'] = item.artists[0].name;
-      trackObj['songLink'] = item.external_urls.spotify;
+      trackObj['link'] = item.external_urls.spotify;
       let imageObj = {};
       imageObj['largeImg'] = item.album.images[0];
       imageObj['mediumImg'] = item.album.images[1];

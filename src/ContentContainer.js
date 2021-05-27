@@ -38,7 +38,7 @@ export default function ContentContainer(props) {
           return (
             <a
               target="_blank"
-              href={track.songLink}
+              href={track.link}
               key={index}
               className="track-container"
               rel="noreferrer"

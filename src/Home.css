@@ -32,6 +32,8 @@
 
 .image-container {
   border-radius: 10px;
+  width: 64px;
+  height: 64px;
 }
 
 .songName {

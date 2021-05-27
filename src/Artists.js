@@ -13,7 +13,7 @@ export default function Artists() {
     let artistsArray = [];
     for (let item of artists.items) {
       let artistObj = {};
-      artistObj['artistLink'] = item.external_urls.spotify;
+      artistObj['link'] = item.external_urls.spotify;
       artistObj['artistName'] = item.name;
       artistObj['genres'] = item.genres[0] + ', ' + item.genres[1] + ', ' + item.genres[2];
       let imageObj = {};
