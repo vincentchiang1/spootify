@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
 import TracksImage from './images/top-tracks-image.jpg';
 import hash from './hash';
+import usePersistedState from './usePersistedState'
 const axios = require('axios');
 
-export default function TopTracks() {
-  const [token, setToken] = useState('');
+export default function TopTracks(props) {
   const [topTracks, setTopTracks] = useState([]);
 
   const parsetopTracks = (tracks) => {
@@ -27,9 +27,11 @@ export default function TopTracks() {
 
   const getTopTracks = async (timeRange) => {
     // dont call api until token is set
-    if (token !== '') {
+    console.log('hi0pefihjs')
+    console.log(props)
+    if (props.token !== '') {
       let config = {
-        headers: { Authorization: 'Bearer ' + token },
+        headers: { Authorization: 'Bearer ' + props.token },
         params: {
           time_range: timeRange,
           limit: 10,
@@ -47,10 +49,8 @@ export default function TopTracks() {
   };
 
   useEffect(() => {
-    let _token = hash.access_token;
-    setToken(_token);
     getTopTracks('long_term');
-  }, [token]);
+  }, []);
 
   return <ContentContainer header="Top Tracks" image={TracksImage} data={topTracks} fetchRequest={getTopTracks} type="tracks" />;
 }

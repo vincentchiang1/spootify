@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import ArtistsImage from './images/top-artists-image.jpg'
 import ContentContainer from './ContentContainer';
+import usePersistedState from './usePersistedState'
 import hash from './hash';
 const axios = require('axios');
 
 
 export default function Artists() {
-  const [token, setToken] = useState('');
+  const [token, setToken] = usePersistedState();
   const [topArtists, setTopArtists] = useState([]);
 
   const parsetopArtists = (artists) => {

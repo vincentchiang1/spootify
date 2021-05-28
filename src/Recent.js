@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
 import ArtistsImage from './images/recently-played-image.jpg';
+import usePersistedState from './usePersistedState'
 import hash from './hash';
 const axios = require('axios');
 
 export default function Recent() {
-  const [token, setToken] = useState('');
+  const [token, setToken] = usePersistedState();
   const [recentSongs, setrecentSongs] = useState([]);
 
   const parseRecentSongs = (tracks) => {
