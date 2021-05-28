@@ -7,8 +7,8 @@ import Home from './Home';
 
 const LoginContainer = () => (
   <div className="container">
-    <Route path="/" render={() => <Redirect to="/login" />} />
-    <Route path="/login" component={Login} />
+    <Route path="/" render={() => <Redirect to="/" />} />
+    <Route path="/" component={Login} />
   </div>
 );
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/(login)" component={LoginContainer} />
+        <Route exact path="/" component={LoginContainer} />
         <Route path="/home" component={Home}></Route>
       </Switch>
     </div>
