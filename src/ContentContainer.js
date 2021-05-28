@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import FadeIn from 'react-fade-in';
 
 export default function ContentContainer(props) {
   return (
@@ -33,39 +34,39 @@ export default function ContentContainer(props) {
             Last Month
           </button>
         </div>}
-        {props.data.map((item, index) => {
-          return (
-            <a
-              target="_blank"
-              href={item.link}
-              key={index}
-              className="item-container"
-              rel="noreferrer"
-            >
-              <div className="info-container">
-                <div className="item-index-container">
-                  <span>{index + 1}</span>
+        <FadeIn>
+          {props.data.map((item, index) => {
+            return (
+              <a
+                target="_blank"
+                href={item.link}
+                key={index}
+                className="item-container"
+                rel="noreferrer"
+              >
+                <div className="info-container">
+                  <div className="item-index-container">
+                    <span>{index + 1}</span>
+                  </div>
+                  <img
+                    className="image-container"
+                    src={item.images.smallImg.url}
+                    alt="track icon"
+                  />
+                  <div className="name-container">
+                    <span className="songName">{item.songName}</span>
+                    <span style={ props.type === 'artists' ? { fontWeight: 500} : {fontWeight: 'normal'}} className="artistName">{item.artistName}</span>
+                    {props.type === 'artists' ? <span className="genres">{item.genres}</span> : null}
+                  </div>
                 </div>
-                <img
-                  className="image-container"
-                  src={item.images.smallImg.url}
-                  alt="track icon"
-                />
-                <div className="name-container">
-                  <span className="songName">{item.songName}</span>
-                  <span style={ props.type === 'artists' ? { fontWeight: 500} : {fontWeight: 'normal'}} className="artistName">{item.artistName}</span>
-                  {props.type === 'artists' ? <span className="genres">{item.genres}</span> : null}
+                
+                <div className="time-stamp-container">
+                  {props.type === 'recent' ? <span className="timeStamp">{item.timeStamp}</span> : null}
                 </div>
-              </div>
-              
-              
-
-              <div className="time-stamp-container">
-                {props.type === 'recent' ? <span className="timeStamp">{item.timeStamp}</span> : null}
-              </div>
-            </a>
-          );
-        })}
+              </a>
+            );
+          })}
+        </FadeIn>        
       </div>
     </div>
   );

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
 import TracksImage from './images/top-tracks-image.jpg';
-import hash from './hash';
-import usePersistedState from './usePersistedState';
 const axios = require('axios');
 
 export default function TopTracks(props) {
-  // const [token, setToken] = usePersistedState();
   const [topTracks, setTopTracks] = useState([]);
 
   const parsetopTracks = (tracks) => {
@@ -28,7 +25,6 @@ export default function TopTracks(props) {
 
   const getTopTracks = async (timeRange) => {
     // dont call api until token is set
-
     let config = {
       headers: { Authorization: 'Bearer ' + props.token },
       params: {

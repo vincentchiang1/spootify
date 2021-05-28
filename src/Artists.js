@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ArtistsImage from './images/top-artists-image.jpg';
 import ContentContainer from './ContentContainer';
-import hash from './hash';
 const axios = require('axios');
 
 export default function Artists(props) {
-  // const [token, setToken] = props.usePersistedState();
   const [topArtists, setTopArtists] = useState([]);
 
   const parsetopArtists = (artists) => {
@@ -55,8 +53,6 @@ export default function Artists(props) {
   };
 
   useEffect(() => {
-    let _token = hash.access_token;
-    // setToken(_token);
     getTopArtists('long_term');
   }, []);
   return (
