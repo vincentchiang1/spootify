@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import ArtistsImage from './images/top-artists-image.jpg'
+import ArtistsImage from './images/top-artists-image.jpg';
 import ContentContainer from './ContentContainer';
-import usePersistedState from './usePersistedState'
 import hash from './hash';
 const axios = require('axios');
 
-
-export default function Artists() {
-  const [token, setToken] = usePersistedState();
+export default function Artists(props) {
+  // const [token, setToken] = props.usePersistedState();
   const [topArtists, setTopArtists] = useState([]);
 
   const parsetopArtists = (artists) => {
@@ -18,11 +16,13 @@ export default function Artists() {
       artistObj['artistName'] = item.name;
       let numGenres = 0;
       artistObj['genres'] = '';
-      for(let genre of item.genres) {
+      for (let genre of item.genres) {
         if (numGenres > 2) {
           break;
         }
-        (numGenres === 2 || numGenres === item.genres.length - 1) ? artistObj['genres'] += genre : artistObj['genres'] += genre + ', ';
+        numGenres === 2 || numGenres === item.genres.length - 1
+          ? (artistObj['genres'] += genre)
+          : (artistObj['genres'] += genre + ', ');
         numGenres++;
       }
       let imageObj = {};
@@ -37,29 +37,35 @@ export default function Artists() {
 
   const getTopArtists = async (timeRange) => {
     // dont call api until token is set
-    if (token !== '') {
-      let config = {
-        headers: { Authorization: 'Bearer ' + token },
-        params: {
-          time_range: timeRange,
-          limit: 10,
-        },
-      };
+    let config = {
+      headers: { Authorization: 'Bearer ' + props.token },
+      params: {
+        time_range: timeRange,
+        limit: 10,
+      },
+    };
 
-      let res = await axios.get(
-        'https://api.spotify.com/v1/me/top/artists',
-        config
-      );
-      if (res.data) {
-        parsetopArtists(res.data);
-      }
+    let res = await axios.get(
+      'https://api.spotify.com/v1/me/top/artists',
+      config
+    );
+    if (res.data) {
+      parsetopArtists(res.data);
     }
   };
 
   useEffect(() => {
     let _token = hash.access_token;
-    setToken(_token);
+    // setToken(_token);
     getTopArtists('long_term');
-  }, [token]);
-  return <ContentContainer header="Top Artists" data={topArtists} fetchRequest={getTopArtists} image={ArtistsImage} type="artists" />;
+  }, []);
+  return (
+    <ContentContainer
+      header="Top Artists"
+      data={topArtists}
+      fetchRequest={getTopArtists}
+      image={ArtistsImage}
+      type="artists"
+    />
+  );
 }

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
 import TracksImage from './images/top-tracks-image.jpg';
 import hash from './hash';
-import usePersistedState from './usePersistedState'
+import usePersistedState from './usePersistedState';
 const axios = require('axios');
 
 export default function TopTracks(props) {
+  // const [token, setToken] = usePersistedState();
   const [topTracks, setTopTracks] = useState([]);
 
   const parsetopTracks = (tracks) => {
@@ -27,30 +28,35 @@ export default function TopTracks(props) {
 
   const getTopTracks = async (timeRange) => {
     // dont call api until token is set
-    console.log('hi0pefihjs')
-    console.log(props)
-    if (props.token !== '') {
-      let config = {
-        headers: { Authorization: 'Bearer ' + props.token },
-        params: {
-          time_range: timeRange,
-          limit: 10,
-        },
-      };
 
-      let res = await axios.get(
-        'https://api.spotify.com/v1/me/top/tracks',
-        config
-      );
-      if (res.data) {
-        parsetopTracks(res.data);
-      }
+    let config = {
+      headers: { Authorization: 'Bearer ' + props.token },
+      params: {
+        time_range: timeRange,
+        limit: 10,
+      },
+    };
+
+    let res = await axios.get(
+      'https://api.spotify.com/v1/me/top/tracks',
+      config
+    );
+    if (res.data) {
+      parsetopTracks(res.data);
     }
   };
 
   useEffect(() => {
     getTopTracks('long_term');
-  }, []);
+  }, [props.token]); // recall this when token is updated
 
-  return <ContentContainer header="Top Tracks" image={TracksImage} data={topTracks} fetchRequest={getTopTracks} type="tracks" />;
+  return (
+    <ContentContainer
+      header="Top Tracks"
+      image={TracksImage}
+      data={topTracks}
+      fetchRequest={getTopTracks}
+      type="tracks"
+    />
+  );
 }
