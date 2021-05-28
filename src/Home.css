@@ -5,10 +5,21 @@
   align-items: center;
   text-decoration: none;
   color: inherit;
+  height: 80px;
 }
 
 .item-container:hover {
   background-color: #ededed;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  margin: 0.6em;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  flex-grow: 3;
 }
 
 .name-container {
@@ -145,4 +156,14 @@ button {
   color: #aba5c3;
   font-size: 0.7em;
   text-transform: capitalize;
+}
+
+.timeStamp {
+  color: #aba5c3;
+  font-size: 1em;
+  text-align: right;
+}
+
+.time-stamp-container {
+  flex: 140px 0;
 }

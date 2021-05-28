@@ -42,18 +42,25 @@ export default function ContentContainer(props) {
               className="item-container"
               rel="noreferrer"
             >
-              <div className="item-index-container">
-                <span>{index + 1}</span>
+              <div className="info-container">
+                <div className="item-index-container">
+                  <span>{index + 1}</span>
+                </div>
+                <img
+                  className="image-container"
+                  src={item.images.smallImg.url}
+                  alt="track icon"
+                />
+                <div className="name-container">
+                  <span className="songName">{item.songName}</span>
+                  <span style={ props.type === 'artists' ? { fontWeight: 500} : {fontWeight: 'normal'}} className="artistName">{item.artistName}</span>
+                  {props.type === 'artists' ? <span className="genres">{item.genres}</span> : null}
+                </div>
               </div>
-              <img
-                className="image-container"
-                src={item.images.smallImg.url}
-                alt="track icon"
-              />
-              <div className="name-container">
-                <span className="songName">{item.songName}</span>
-                <span style={ props.type === 'artists' ? { fontWeight: 500} : {fontWeight: 'normal'}} className="artistName">{item.artistName}</span>
-                {props.type === 'artists' ? <span className="genres">{item.genres}</span> : null}
+              
+              
+
+              <div className="time-stamp-container">
                 {props.type === 'recent' ? <span className="timeStamp">{item.timeStamp}</span> : null}
               </div>
             </a>
