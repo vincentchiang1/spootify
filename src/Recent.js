@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
 import ArtistsImage from './images/recently-played-image.jpg';
-import hash from './hash';
 const axios = require('axios');
 
 export default function Recent(props) {
-  // const [token, setToken] = props.usePersistedState();
   const [recentSongs, setrecentSongs] = useState([]);
 
   const parseRecentSongs = (tracks) => {
@@ -53,7 +51,6 @@ export default function Recent(props) {
   };
 
   const getRecentSongs = async () => {
-    // console.log(token);
     // dont call api until token is set
     let config = {
       headers: { Authorization: 'Bearer ' + props.token },
@@ -72,8 +69,6 @@ export default function Recent(props) {
   };
 
   useEffect(() => {
-    // let _token = hash.access_token;
-    // setToken(_token);
     getRecentSongs();
   }, []);
 
