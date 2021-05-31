@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ArtistsImage from './images/top-artists-image.jpg';
+import ArtistsImage from './images/top-artists-image.webp';
 import ContentContainer from './ContentContainer';
 const axios = require('axios');
 

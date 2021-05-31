@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
-import TracksImage from './images/top-tracks-image.jpg';
+import TracksImage from './images/top-tracks-image.webp';
 const axios = require('axios');
 
 export default function TopTracks(props) {

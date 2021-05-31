@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ContentContainer from './ContentContainer';
-import ArtistsImage from './images/recently-played-image.jpg';
+import ArtistsImage from './images/recently-played-image.webp';
 const axios = require('axios');
 
 export default function Recent(props) {
